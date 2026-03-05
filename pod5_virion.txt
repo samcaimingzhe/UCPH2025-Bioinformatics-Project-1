@@ -1,0 +1,6 @@
+/projects/renlab/data/projects/projects_with_PB/AMV/data/VPM1_COL0AMV/VPM1_COL0AMV/20241204_0220_MN43552_FAZ56470_7f2c08ab/pod5
+/projects/renlab/data/projects/projects_with_PB/AMV/data/VPM2_COL0AMV/VPM2_COL0AMV/20241204_1237_MN43552_FAZ56470_b723e15f/pod5
+/projects/renlab/data/projects/projects_with_PB/AMV/data/VPM3_COL0AMV/VPM3_COL0AMV/20241204_1924_MN43552_FAZ56470_0640b58e/pod5
+/projects/renlab/data/projects/projects_with_PB/AMV/data/VPM4_9BEAMV/VPM4_9BEAMV/20241203_1614_MN43552_FAZ56470_8d0d3123/pod5
+/projects/renlab/data/projects/projects_with_PB/AMV/data/VPM5_9BEAMV/VPM5_9BEAMV/20241203_2113_MN43552_FAZ56470_53183ceb/pod5
+/projects/renlab/data/projects/projects_with_PB/AMV/data/VP_CONTROL_COLDMOCK/VP_CONTROL_COLDMOCK/20241203_1224_MN43552_FAZ56470_442fc885/pod5
