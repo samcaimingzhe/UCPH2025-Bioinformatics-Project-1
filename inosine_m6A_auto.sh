@@ -23,7 +23,7 @@ while IFS= read -r pod5_total; do
       --verbose \
       --modified-bases ${mod} \
       > "${out_bam}"
-done < "${pod5_file}"
+done < "${pod5_total}"
 ##############################################
 ################## VIRION ####################
 ##############################################
@@ -44,7 +44,7 @@ while IFS= read -r pod5_virion; do
       --verbose \
       --modified-bases ${mod} \
       > "${out_bam}"
-done < "${pod5_file}"
+done < "${pod5_virion}"
 
 ##############################################
 ############## MODKIT VIRION #################
