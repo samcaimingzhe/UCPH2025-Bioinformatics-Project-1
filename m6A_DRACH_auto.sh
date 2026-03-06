@@ -1,4 +1,5 @@
 export DORADO_MODELS_DIRECTORY="/home/vpm582/models"
+#fasta4="/home/vpm582/ref4.fa"
 fasta3="/home/vpm582/ref3.fa"
 pod5_total="pod5_total.txt"
 pod5_virion="pod5_virion.txt"
@@ -64,7 +65,7 @@ for bamfile in calls_virion_*.bam; do
     echo
     
     # 1. Get summary of reads
-    dorado summary "${bamfile}" > summary_reads_virion_${SAMPLE_NAME}.tsv
+    #dorado summary "${bamfile}" > summary_reads_virion_${SAMPLE_NAME}.tsv
     # 2. Sort the BAM
     samtools sort "${bamfile}" -o "${SORTED_BAM}"
     # 3. Index the sorted BAM
@@ -74,7 +75,7 @@ for bamfile in calls_virion_*.bam; do
     modkit pileup \
         "${SORTED_BAM}" \
         "${PILEUP_BED}" \
-        --reference /home/vpm582/ref.fa
+        --reference ${fasta3} \
         --modified-bases m6A \
         --log-filepath pileup.log
 
@@ -90,7 +91,7 @@ for bamfile in calls_total_*.bam; do
     SAMPLE_NAME=$(basename "${bamfile}" .bam)
     SAMPLE_NAME=${SAMPLE_NAME#calls_total_}
 
-    SORTED_BAM="calls_total_${SAMPLE_NAME}_sorted.bam"
+    SORTED_BAM="sorted_calls_total_${SAMPLE_NAME}.bam"
     PILEUP_BED="pileup_total_${SAMPLE_NAME}.bed"
     EXTRACT_BED="extract_total_${SAMPLE_NAME}.bed"
     
@@ -101,7 +102,7 @@ for bamfile in calls_total_*.bam; do
     echo
     
     # 1. Get summary of reads
-    dorado summary "${bamfile}" > summary_reads_total_${SAMPLE_NAME}.tsv
+    # dorado summary "${bamfile}" > summary_reads_total_${SAMPLE_NAME}.tsv
     # 2. Sort the BAM
     samtools sort "${bamfile}" -o "${SORTED_BAM}"
     # 3. Index the sorted BAM
@@ -112,6 +113,7 @@ for bamfile in calls_total_*.bam; do
         "${SORTED_BAM}" \
         "${PILEUP_BED}" \
         --modified-bases m6A \
+	    --reference ${fasta3} \
         --log-filepath pileup.log
 
     echo "Finished sample: ${SAMPLE_NAME}"
