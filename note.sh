@@ -1,4 +1,12 @@
 
+git init
+git remote add -f origin https://github.com/xieyy46/SingleMod-v1.git
+git config core.sparseCheckout true
+
+echo "SingleMod" >> .git/info/sparse-checkout
+echo "models" >> .git/info/sparse-checkout
+git pull origin main
+
 mkdir -p fastq
 samtools fastq processed_data/M1_COL0AMV/M1_COL0AMV.bam > fastq/M1_COL0AMV.fastq
 samtools index -@ 16 processed_data/M1_COL0AMV/M1_COL0AMV.bam
@@ -17,22 +25,22 @@ samtools index $bam
 } &
 done
 
-mkdir -p eventalign_output_dir
-mkdir -p fast5_dir
-pod5 convert to_fast5 /projects/renlab/data/projects/projects_with_PB/AMV/nanopore_data/M1_COL0AMV/M1_COL0_AMV/*/pod5/*.pod5 --output fast5_dir/ --threads 20 --force-overwrite
 
+mkdir -p eventalign_output_dir
+
+f5c index -d fast5_dir/ fastq/M1_COL0AMV.fastq
 
 for file in split_bam_dir/*.bam
 do
 {
 info=(${file//// })
-f5c eventalign -r fastq/M1_COL0AMV.fastq -b $file \
-               -g /home/vpm582/ref3.fa \
-               -t 15 --pore rna004 --rna --scale-events --samples --signal-index \
-               --summarcdy eventalign_output_dir/${info[-1]%%.bam}_summary.txt \
-               --print-read-names > eventalign_output_dir/${info[-1]%%.bam}_eventalign.txt
+f5c eventalign -r fastq/M1_COL0AMV.fastq -b $file -g /home/vpm582/ref3.fa -t 15 --rna --scale-events --samples --signal-index --summary eventalign_output_dir/${info[-1]%%.bam}_summary.txt --print-read-names > eventalign_output_dir/${info[-1]%%.bam}_eventalign.txt
 } &
 done
+
+mkdir -p fast5_dir
+pod5 convert to_fast5 /projects/renlab/data/projects/projects_with_PB/AMV/nanopore_data/M1_COL0AMV/M1_COL0_AMV/*/pod5/*.pod5 --output fast5_dir/ --threads 20 --force-overwrite
+
 
 mkdir -p tmp_features  
 mkdir -p features
