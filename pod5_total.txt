@@ -1,6 +1,6 @@
-/projects/renlab/data/projects/projects_with_PB/AMV/nanopore_data/CONTROL_COLD_COL0MOCK/CONTROL_COLD_COL0MOCK/20241129_0034_MN43552_FAZ56545_481633df/pod5
-/projects/renlab/data/projects/projects_with_PB/AMV/nanopore_data/M1_COL0AMV/M1_COL0_AMV/20241127_1511_MN43552_FAZ56545_ddcaaec2/pod5
-/projects/renlab/data/projects/projects_with_PB/AMV/nanopore_data/M2_COL0AMV/M2_COL0AMV/20241128_1716_MN43552_FAZ56545_e086993f/pod5
-/projects/renlab/data/projects/projects_with_PB/AMV/nanopore_data/M3_COL0AMV/M3_COL0AMV/20241129_1332_MN43552_FAZ56545_fe21df88/pod5
-/projects/renlab/data/projects/projects_with_PB/AMV/nanopore_data/M4_9BEAMV/M4_9BEAMV//20241127_2331_MN43552_FAZ56545_8e0ee835/pod5
-/projects/renlab/data/projects/projects_with_PB/AMV/nanopore_data/M6_9BEAMV/M6_9BEAMV/20241128_0956_MN43552_FAZ56545_b2ca90cc/pod5
+/projects/renlab/data/projects/projects_with_PB/AMV/nanopore_data/CONTROL_COLD_COL0MOCK/*/*/pod5
+/projects/renlab/data/projects/projects_with_PB/AMV/nanopore_data/M1_COL0AMV/*/*/pod5
+/projects/renlab/data/projects/projects_with_PB/AMV/nanopore_data/M2_COL0AMV/*/*/pod5
+/projects/renlab/data/projects/projects_with_PB/AMV/nanopore_data/M3_COL0AMV/*/*/pod5
+/projects/renlab/data/projects/projects_with_PB/AMV/nanopore_data/M4_9BEAMV/*//*/pod5
+/projects/renlab/data/projects/projects_with_PB/AMV/nanopore_data/M6_9BEAMV/*/*/pod5
