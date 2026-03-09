@@ -1,5 +1,4 @@
 export DORADO_MODELS_DIRECTORY="/home/vpm582/models"
-#fasta4="/home/vpm582/ref4.fa"
 fasta3="/home/vpm582/ref3.fa"
 pod5_total="pod5_total.txt"
 pod5_virion="pod5_virion.txt"
@@ -17,7 +16,7 @@ while IFS= read -r pod5_total; do
     echo "Output BAM:       ${out_bam}"
     echo
 
-    dorado basecaller sup "${pod5_total}/" \
+    dorado basecaller rna004_130bps_sup@v5.3.0_inosine_m6A_2OmeA@v1 "${pod5_total}/" \
       -x cuda:0,1,2 \
       --reference "${fasta3}" \
       --recursive \
@@ -38,7 +37,7 @@ while IFS= read -r pod5_virion; do
     echo "Output BAM:       ${out_bam}"
     echo
 
-    dorado basecaller sup "${pod5_virion}/" \
+    dorado basecaller rna004_130bps_sup@v5.3.0_inosine_m6A_2OmeA@v1 "${pod5_virion}/" \
       -x cuda:0,1,2 \
       --reference "${fasta3}" \
       --recursive \
