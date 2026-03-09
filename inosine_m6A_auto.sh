@@ -2,6 +2,8 @@ export DORADO_MODELS_DIRECTORY="/home/vpm582/models"
 fasta3="/home/vpm582/ref3.fa"
 pod5_total="pod5_total.txt"
 pod5_virion="pod5_virion.txt"
+
+
 mod="inosine_m6A_2OmeA"
 ##############################################
 ################### TOTAL ####################
