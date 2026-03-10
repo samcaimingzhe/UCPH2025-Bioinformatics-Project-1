@@ -1,3 +1,4 @@
+fasta3='/home/vpm582/ref3.fa' 
 ############## MODKIT VIRION #################
 for bamfile in calls_virion_*.bam; do
     SAMPLE_NAME=$(basename "${bamfile}" .bam)
