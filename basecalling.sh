@@ -22,7 +22,7 @@ while IFS= read -r pod5_total; do
       -x cuda:0,1,2 \
       --reference "${fasta3}" \
       --recursive \
-      --verbose 
+      --verbose \
       > "${out_bam}"
 done < "${pod5_total}"
 ################### VPM ####################
@@ -40,6 +40,6 @@ while IFS= read -r pod5_total; do
       -x cuda:0,1,2 \
       --reference "${fasta3}" \
       --recursive \
-      --verbose 
+      --verbose \
       > "${out_bam}"
 done < "${pod5_total}"
