@@ -11,7 +11,7 @@ mod="inosine_m6A_2OmeA"
 ################### TOTAL ####################
 pod5_total="pod5_total.txt"
 while IFS= read -r pod5_total; do
-    SAMPLE_NAME=$(dirname "$(dirname "$(dirname "$pod5_total")")")
+    SAMPLE_NAME=$(basename "$(dirname "$(dirname "$(dirname "$(dirname "$pod5_total")")")")")
     out_bam="calls_total_${SAMPLE_NAME}.bam"
 
     echo "Processing sample: ${SAMPLE_NAME}"
@@ -30,7 +30,7 @@ done < "${pod5_total}"
 ################### VPM ####################
 pod5_total="pod5_virion.txt"
 while IFS= read -r pod5_total; do
-    SAMPLE_NAME=$(dirname "$(dirname "$(dirname "$pod5_total")")")
+    SAMPLE_NAME=$(basename "$(dirname "$(dirname "$(dirname "$(dirname "$pod5_total")")")")")
     out_bam="calls_virion_${SAMPLE_NAME}.bam"
 
     echo "Processing sample: ${SAMPLE_NAME}"
