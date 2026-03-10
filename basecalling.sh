@@ -7,7 +7,6 @@ export DORADO_MODELS_DIRECTORY="/home/vpm582/models"
 fasta3="/home/vpm582/ref3.fa"
 pod5_total="pod5_total.txt"
 pod5_virion="pod5_virion.txt"
-mod="inosine_m6A_2OmeA"
 ################### TOTAL ####################
 pod5_total="pod5_total.txt"
 while IFS= read -r pod5_total; do
@@ -23,8 +22,7 @@ while IFS= read -r pod5_total; do
       -x cuda:0,1,2 \
       --reference "${fasta3}" \
       --recursive \
-      --verbose \
-      --modified-bases ${mod} \
+      --verbose 
       > "${out_bam}"
 done < "${pod5_total}"
 ################### VPM ####################
@@ -42,7 +40,6 @@ while IFS= read -r pod5_total; do
       -x cuda:0,1,2 \
       --reference "${fasta3}" \
       --recursive \
-      --verbose \
-      --modified-bases ${mod} \
+      --verbose 
       > "${out_bam}"
 done < "${pod5_total}"
