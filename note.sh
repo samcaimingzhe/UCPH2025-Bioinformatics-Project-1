@@ -71,3 +71,41 @@ cd tmp_features #required step
 wc -l *-extra_info.txt | sed 's/^ *//g' | sed '$d' | tr " " "\t"   > extra_info.txt
 
 python -u SingleMod/merge_motif_npy.py -v 004 -d tmp_features -s 500000 -o features
+
+
+
+
+
+
+
+mkdir -p initbam sorted
+
+dorado basecaller rna004_130bps_sup@v5.3.0_inosine_m6A_2OmeA@v1 /projects/renlab/data/projects/projects_with_PB/AMV/nanopore_data/M4_9BEAMV/*/*/pod5/*.pod5 \
+      -x cuda:0,1,2 \
+      --reference "/home/vpm582/ref3.fa" \
+      --recursive \
+      --verbose \
+      --modified-bases m6A > initbam/M4_9BEAMV.init.bam
+
+
+samtools sort initbam/M4_9BEAMV.init.bam -o sorted/M4_9BEAMV.sorted.bam
+samtools index sorted/M4_9BEAMV.sorted.bam
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
