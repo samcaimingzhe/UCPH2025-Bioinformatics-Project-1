@@ -1,3 +1,5 @@
+# wget https://raw.githubusercontent.com/samcaimingzhe/UCPH2025-Bioinformatics-Project-1/main/pod5_total.txt -o pod5_total.txt
+# wget https://raw.githubusercontent.com/samcaimingzhe/UCPH2025-Bioinformatics-Project-1/main/pod5_virion.txt -o pod5_virion.txt
 export DORADO_MODELS_DIRECTORY="/home/vpm582/models"
 fasta3="/home/vpm582/ref3.fa"
 pod5_total="pod5_total.txt"
