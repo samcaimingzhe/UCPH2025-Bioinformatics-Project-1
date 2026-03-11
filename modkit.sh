@@ -41,7 +41,6 @@ for bamfile in calls_total_*.bam; do
     echo "Input BAM:         ${bamfile}"
     echo "Sorted BAM:        ${SORTED_BAM}"
     echo "Pileup BED:        ${PILEUP_BED}"
-    echo
   
     samtools sort "${bamfile}" -o "${SORTED_BAM}"
     samtools index "${SORTED_BAM}"
@@ -56,3 +55,50 @@ for bamfile in calls_total_*.bam; do
     echo "Finished sample: ${SAMPLE_NAME}"
     echo "----------------------------------------"
 done
+
+for bamfile in sorted_calls*.bam; do
+    SAMPLE_NAME=$(basename "${bamfile}" .bam)
+	OUT_BAM="filtered_${SAMPLE_NAME}.bam"
+
+	modkit modbam call-mods ${bamfile} ${OUT_BAM} --filter-threshold A:0.9 --mod-threshold a:0.95
+	
+	modkit pileup \
+        "${SORTED_BAM}" \
+        "${PILEUP_BED}" \
+        --modified-bases m6A \
+	    --reference /home/vpm582/ref3.fa \
+        --log-filepath pileup.log \
+		--bgzf
+
+    echo "Finished sample: ${SAMPLE_NAME}"
+    echo "----------------------------------------"
+done
+
+for bamfile in filtered_*.bam; do
+    SAMPLE_NAME=$(basename "${bamfile}" .bam)
+	PILEUP_BED="pileup_${SAMPLE_NAME}.bed"
+
+	OUT_BAM="${SAMPLE_NAME}.bam"
+	SORTED_BAM="sorted_${SAMPLE_NAME}.bam"
+    
+    echo "Processing sample: ${SAMPLE_NAME}"
+    echo "Input BAM:         ${bamfile}"
+    echo "Sorted BAM:        ${SORTED_BAM}"
+    echo "Pileup BED:        ${PILEUP_BED}"
+  
+    samtools sort "${bamfile}" -o "${SORTED_BAM}"
+    samtools index "${SORTED_BAM}"
+
+	modkit pileup \
+        "${SORTED_BAM}" \
+        "${PILEUP_BED}" \
+        --modified-bases m6A \
+	    --reference /home/vpm582/ref3.fa \
+        --log-filepath pileup.log \
+		--bgzf
+
+    echo "Finished sample: ${SAMPLE_NAME}"
+    echo "----------------------------------------"
+done
+
+
