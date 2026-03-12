@@ -5,7 +5,7 @@ pod5="pod5_total.txt"
 while IFS= read -r pod5; 
 do
     SAMPLE_NAME=$(dirname "$(dirname "$(dirname "$pod5")")")
-    out_bam="${SAMPLE_NAME}.bam"
+    out_bam="total_${SAMPLE_NAME}.bam"
     echo "Sample Name: ${SAMPLE_NAME}"
     echo "Output BAM:  ${out_bam}"
     dorado basecaller rna004_130bps_sup@v5.3.0_inosine_m6A_2OmeA@v1 "${pod5}/" \
@@ -60,7 +60,7 @@ for bamfile in total_*.bam; do
 done
 
 ############## MODKIT VIRION #################
-for bamfile in vp_*.bam; do
+for bamfile in VP*.bam; do
     SAMPLE_NAME=$(basename "${bamfile}".bam)
 	
     SORTED_BAM="sorted_${SAMPLE_NAME}.bam"
