@@ -4,7 +4,7 @@ ref_seq="/home/vpm582/ref3.fa"
 pod5="pod5_total.txt"
 while IFS= read -r pod5; 
 do
-    SAMPLE_NAME=$(dirname "$(dirname "$(dirname "$pod5")")")
+    SAMPLE_NAME=$(basename "$(dirname "$(dirname "$(dirname "$pod5")")")")
     out_bam="total_${SAMPLE_NAME}.bam"
     echo "Sample Name: ${SAMPLE_NAME}"
     echo "Output BAM:  ${out_bam}"
