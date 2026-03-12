@@ -4,9 +4,8 @@ ref_seq="/home/vpm582/ref3.fa"
 pod5="pod5_total.txt"
 while IFS= read -r pod5; 
 do
-    SAMPLE_NAME=$(dirname "$(dirname "$(dirname "$pod5")")")")
-    out_bam="total_${SAMPLE_NAME}.bam"
-    echo "POD5 Dir:    ${pod5}"
+    SAMPLE_NAME=$(dirname "$(dirname "$(dirname "$pod5")")")
+    out_bam="${SAMPLE_NAME}.bam"
     echo "Sample Name: ${SAMPLE_NAME}"
     echo "Output BAM:  ${out_bam}"
     dorado basecaller rna004_130bps_sup@v5.3.0_inosine_m6A_2OmeA@v1 "${pod5}/" \
@@ -21,11 +20,11 @@ done < "${pod5}"
 pod5="pod5_virion.txt"
 while IFS= read -r pod5; 
 do
-    SAMPLE_NAME=$(dirname "$(dirname "$(dirname "$pod5")")")")
-    out_bam="vp_${SAMPLE_NAME}.bam"
-    echo "POD5 Dir:    ${pod5}"
+    SAMPLE_NAME=$(basename "$(dirname "$(dirname "$(dirname "$pod5")")")")
+    out_bam="${SAMPLE_NAME}.bam"
     echo "Sample Name: ${SAMPLE_NAME}"
     echo "Output BAM:  ${out_bam}"
+	
     dorado basecaller rna004_130bps_sup@v5.3.0_inosine_m6A_2OmeA@v1 "${pod5}/" \
       -x cuda:0,1,2 \
       --reference "${ref_seq}" \
